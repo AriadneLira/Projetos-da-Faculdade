@@ -1,0 +1,10 @@
+
+body { scroll-behavior: smooth; }
+.card-img-top { object-fit: contain; height: 180px; background: #fff; }
+.skip-link {
+  position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus {
+  position: static; width: auto; height: auto; padding: .5rem .75rem; background: #0d6efd; color: #fff; border-radius: .5rem;
+}
+fieldset legend { font-weight: 600; }

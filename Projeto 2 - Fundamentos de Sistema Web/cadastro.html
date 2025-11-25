@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Cadastro e Agendamento - PetShop Amigo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="sticky-top shadow-sm bg-white">
+    <nav class="navbar navbar-expand-lg container">
+      <a class="navbar-brand fw-bold" href="index.html">🐾 PetShop Amigo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMain" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="cadastro.html">Cadastro e Agendamento</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-4">
+    <h1 class="h3 mb-3">Cadastro do Cliente, Pet e Agendamento</h1>
+    <p class="text-body-secondary">Preencha os campos abaixo. Campos com * são obrigatórios.</p>
+
+   <div id="liveRegion" class="visually-hidden" aria-live="polite"></div>
+
+    <form id="formAgendamento" class="needs-validation" novalidate>
+     <fieldset class="border rounded p-3 mb-4">
+        <legend class="float-none w-auto px-2 h6">Dados do Cliente</legend>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome completo *</label>
+            <input id="nome" name="nome" type="text" class="form-control" placeholder="Ex.: Maria Silva" required>
+            <div class="invalid-feedback">Informe o nome.</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cpf" class="form-label">CPF *</label>
+            <input id="cpf" name="cpf" type="text" inputmode="numeric" pattern="\\d{11}" maxlength="11" class="form-control" placeholder="Somente números" required>
+            <div class="form-text">11 dígitos, sem pontos ou traço.</div>
+            <div class="invalid-feedback">CPF deve conter 11 números.</div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label d-block">Sexo *</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="sexo" id="sexoF" value="F" required>
+              <label class="form-check-label" for="sexoF">Feminino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="sexo" id="sexoM" value="M" required>
+              <label class="form-check-label" for="sexoM">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="sexo" id="sexoO" value="Outro" required>
+              <label class="form-check-label" for="sexoO">Outro</label>
+            </div>
+            <div class="invalid-feedback d-block">Selecione uma opção.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="endereco" class="form-label">Endereço *</label>
+            <input id="endereco" name="endereco" type="text" class="form-control" placeholder="Rua, número, bairro" required>
+            <div class="invalid-feedback">Informe o endereço.</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="telefone" class="form-label">Telefone *</label>
+            <input id="telefone" name="telefone" type="tel" class="form-control" placeholder="(xx) xxxxx-xxxx" required>
+            <div class="invalid-feedback">Informe o telefone.</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="email" class="form-label">E-mail *</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="voce@email.com" required>
+            <div class="invalid-feedback">Informe um e-mail válido.</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="border rounded p-3 mb-4">
+        <legend class="float-none w-auto px-2 h6">Dados do Pet</legend>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="nomePet" class="form-label">Nome do pet *</label>
+            <input id="nomePet" name="nomePet" type="text" class="form-control" required placeholder="Ex.: Thor">
+            <div class="invalid-feedback">Informe o nome do pet.</div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="raca" class="form-label">Raça *</label>
+            <input id="raca" name="raca" type="text" class="form-control" required placeholder="Ex.: SRD, Shih Tzu">
+            <div class="invalid-feedback">Informe a raça.</div>
+          </div>
+
+          <div class="col-md-2">
+            <label for="idade" class="form-label">Idade (anos) *</label>
+            <input id="idade" name="idade" type="number" min="0" max="30" class="form-control" required>
+            <div class="invalid-feedback">Idade válida entre 0 e 30.</div>
+          </div>
+
+          <div class="col-md-2">
+            <label for="porte" class="form-label">Porte *</label>
+            <select id="porte" name="porte" class="form-select" required>
+              <option value="" selected disabled>Selecione</option>
+              <option value="pequeno">Pequeno</option>
+              <option value="medio">Médio</option>
+              <option value="grande">Grande</option>
+            </select>
+            <div class="invalid-feedback">Selecione o porte.</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="border rounded p-3 mb-4">
+        <legend class="float-none w-auto px-2 h6">Serviço e Agendamento</legend>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label d-block">Serviço *</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="servico" id="servicoBanho" value="banho" required>
+              <label class="form-check-label" for="servicoBanho">Banho</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="servico" id="servicoTosa" value="tosa" required>
+              <label class="form-check-label" for="servicoTosa">Tosa</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="servico" id="servicoAmbos" value="banho_tosa" required>
+              <label class="form-check-label" for="servicoAmbos">Banho + Tosa</label>
+            </div>
+            <div class="invalid-feedback d-block">Escolha um serviço.</div>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label d-block">Método de agendamento *</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="metodo" id="metodoTele" value="tele-busca" required>
+              <label class="form-check-label" for="metodoTele">Tele-busca (R$ 19,90 por trajeto)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="metodo" id="metodoLocal" value="local" required>
+              <label class="form-check-label" for="metodoLocal">Entrega no local</label>
+            </div>
+            <div class="invalid-feedback d-block">Selecione um método.</div>
+          </div>
+
+          <div class="col-md-2">
+            <label for="data" class="form-label">Data *</label>
+            <input id="data" name="data" type="date" class="form-control" required>
+            <div class="invalid-feedback">Escolha a data.</div>
+          </div>
+          <div class="col-md-2">
+            <label for="hora" class="form-label">Hora *</label>
+            <input id="hora" name="hora" type="time" class="form-control" required>
+            <div class="invalid-feedback">Escolha a hora.</div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="1" id="aceite" required>
+              <label class="form-check-label" for="aceite">
+                Confirmo que as informações estão corretas e autorizo contato para confirmação do agendamento.
+              </label>
+              <div class="invalid-feedback">Você deve aceitar para continuar.</div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-md-8">
+          <div class="alert alert-secondary d-flex justify-content-between align-items-center" role="status">
+            <span id="resumoPreco">Selecione serviço, porte e método para calcular o total.</span>
+            <strong id="total" class="fs-5">R$ 0,00</strong>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <button class="btn btn-success btn-lg" type="submit">Confirmar Agendamento</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <div class="modal fade" id="modalOk" tabindex="-1" aria-labelledby="modalOkLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalOkLabel">Agendamento recebido ✅</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p id="resumoFinal" class="mb-0"></p>
+        </div>
+        <div class="modal-footer">
+          <a href="index.html" class="btn btn-primary">Voltar ao início</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-top py-4">
+    <div class="container small">&copy; 2025 PetShop Amigo</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
